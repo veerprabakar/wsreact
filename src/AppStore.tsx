@@ -2,12 +2,12 @@
 export class AppStore {
     
     runit() {
-        console.warn('runit>>>');
-        require("webassembly")
-            .load("program.wasm")
-            .then((m: any) => {
-                console.warn("1 + 2 = " + m.exports.add(1, 2));
-            });
+        // console.warn('runit>>>');
+        // require("webassembly")
+        //     .load("main.wasm")
+        //     .then((m: any) => {
+        //         console.warn("GET = " + m.get());
+        //     });
     }
 }
 
