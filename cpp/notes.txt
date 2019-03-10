@@ -1,0 +1,1 @@
+emcc D:\myweba\npm_sample\wsreact\cpp\main.cc -O3 -s SIDE_MODULE=1 -s WASM=1 -o ./main.wasm
