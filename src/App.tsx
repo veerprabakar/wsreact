@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppStore from './AppStore';
-import { CppSample } from './Cpp/CppSample';
+import { GoSample } from './Go/GoSample';
 
 class App extends Component {
   store = new AppStore;
@@ -13,13 +13,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h3>3D Demo</h3>
+        <h3>Web Assembly</h3>
         <select>
-          <option defaultChecked>Web GL</option>
-          <option>C++</option>
+          <option defaultChecked>Go</option>
+          <option>Web GL</option>
         </select>
         
-        <CppSample />
+        <GoSample />
       </div>
     );
   }

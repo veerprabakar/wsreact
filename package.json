@@ -9,9 +9,12 @@
     "@types/react-dom": "16.8.2",
     "@types/webassembly-js-api": "0.0.2",
     "cpp-wasm-loader": "^0.9.0",
+    "fs": "0.0.1-security",
+    "go-wasm": "0.0.3",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-scripts": "2.1.5",
+    "read-file": "^0.2.0",
     "typescript": "3.3.3333",
     "webassembly": "^0.11.0"
   },
