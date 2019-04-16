@@ -2,31 +2,44 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
+	"syscall/js"
 )
 
 func main() {
-	var wg sync.WaitGroup
-	wg.Add(1)
+	// var wg sync.WaitGroup
+	// wg.Add(1)
 
-	go func() {
-		runit("goat")
-		wg.Done()
-	}()
+	// go func() {
+	// 	runit("goat")
+	// 	wg.Done()
+	// }()
 
-	go func() {
-		runit("tiger")
-		wg.Done()
-	}()
+	// go func() {
+	// 	runit("tiger")
+	// 	wg.Done()
+	// }()
 
-	wg.Wait()
+	// wg.Wait()
+	c := make(chan struct{}, 0)
+
+	println("WASM Go Initialized")
+	// register functions
+	registerCallbacks()
+	<-c
 }
 
-func runit(thing string) {
-	// fmt.Println("Hello, WebAssembly!")
-	for i := 1; i <= 5; i++ {
-		fmt.Println(i, thing)
-		time.Sleep(time.Millisecond * 500)
-	}
+func add(i []js.Value) {
+	fmt.Println(i)
+	js.Global().Set("output", js.ValueOf(i[0].Int()+i[1].Int()))
 }
+
+func registerCallbacks() {
+	js.Global().Set("add", js.NewCallback(add))
+}
+
+// func runit(thing string) {
+// 	for i := 1; i <= 5; i++ {
+// 		fmt.Println(i, thing)
+// 		time.Sleep(time.Millisecond * 500)
+// 	}
+// }
